@@ -8,53 +8,5 @@
 
 <button onclick="speakText()">Reproducir Audio</button>
 
-<script>
-    // Variable global para las voces disponibles
-    var voices = [];
-    var selectedVoice = null;
-
-    // Cargar las voces disponibles cuando el navegador lo permita
-    function loadVoices() {
-        voices = speechSynthesis.getVoices();
-        console.log(voices);  // Ver las voces disponibles en la consola
-
-        // Aquí, puedes poner el nombre exacto de la voz que deseas seleccionar
-        var selectedVoiceName = "Google español"; // O el nombre de la voz que prefieras
-
-        // Buscar la voz por su nombre
-        selectedVoice = voices.find(function(voice) {
-            return voice.name === selectedVoiceName;
-        });
-
-        // Si no se encuentra la voz, selecciona una predeterminada (como la primera voz)
-        if (!selectedVoice) {
-            selectedVoice = voices[0];
-        }
-    }
-
-    // Esperar a que las voces estén disponibles
-    speechSynthesis.onvoiceschanged = function() {
-        loadVoices();
-    }
-
-    function speakText() {
-        var text = document.getElementById("userText").value;
-
-        // Si el campo está vacío, mostrar una advertencia
-        if (text.trim() === "") {
-            alert("Por favor, ingresa un texto.");
-            return;
-        }
-
-        var utterance = new SpeechSynthesisUtterance(text);
-
-        // Establecer la voz seleccionada
-        utterance.voice = selectedVoice;
-
-        // Ajustar la velocidad para que sea más lenta
-        utterance.rate = 1; // Valores menores a 1 hacen la voz más lenta (1 es la velocidad normal)
-
-        // Reproducir el audio
-        window.speechSynthesis.speak(utterance);
-    }
-</script>
+<!-- Enlazamos el archivo JavaScript externo -->
+<script src="~/js/speech.js"></script>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo_planets", "Exo_planets\Exo_planets.csproj", "{079A1BA0-16BF-4D0B-A2FD-5ED994417676}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{079A1BA0-16BF-4D0B-A2FD-5ED994417676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079A1BA0-16BF-4D0B-A2FD-5ED994417676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079A1BA0-16BF-4D0B-A2FD-5ED994417676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079A1BA0-16BF-4D0B-A2FD-5ED994417676}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5E3B483-8788-4967-9FA4-1E1798FBE1B7}
+	EndGlobalSection
+EndGlobal

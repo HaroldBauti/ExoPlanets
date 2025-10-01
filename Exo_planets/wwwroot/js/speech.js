@@ -65,10 +65,24 @@ async function speakText() {
     const result = await fetchQueryResult(text, 1); // Suponemos que id=1 por ejemplo
 
     if (result) {
+        console.log(result);
         // Reproducir el texto usando la síntesis de voz
         const utterance = new SpeechSynthesisUtterance(result.value);
 
         utterance.voice = selectedVoice; utterance.rate = 1;
         window.speechSynthesis.speak(utterance);
+
+        // Mostrar la URL en el HTML
+        const imageContainer = document.getElementById("imageContainer");
+
+        if (result.url) {
+            // Si quieres mostrar la imagen directamente:
+            imageContainer.innerHTML = `<img src="${result.url}" alt="Imagen relacionada" style="max-width: 100%; height: auto;">`;
+
+            // O si prefieres solo mostrar el enlace:
+            // imageContainer.innerHTML = `<a href="${result.url}" target="_blank">${result.url}</a>`;
+        } else {
+            imageContainer.innerHTML = ""; // Limpiar si no hay URL
+        }
     }
 }

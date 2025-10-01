@@ -32,16 +32,19 @@ namespace Exo_planets.Controllers
                 var response = await httpClient.PostAsync(_webHookUrl, content);
 
                 var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseContent);
                 if (responseContent.Contains("N/A"))
                 {
                     int indexOf = responseContent.IndexOf("N/A");
+                    rsp.url = "N/A";
                     rsp.output = "N/A";
                     rsp.Value = responseContent.Substring(indexOf + 4).TrimStart();
                 }
                 else
                 {
-                    rsp.output = responseContent.Split(',')[0];
-                    rsp.Value = responseContent.Split(',')[1];
+                    rsp.url = responseContent.Split(',')[0];
+                    rsp.output = responseContent.Split(',')[1];
+                    rsp.Value = responseContent.Split(',')[2];
                 }
 
             }

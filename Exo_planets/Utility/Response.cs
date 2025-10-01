@@ -4,6 +4,7 @@
     {
         //public bool status {  get; set; }
         public string? output { get; set; }
+        public string? url { get; set; }
         public string? Value { get; set; }
     }
 }

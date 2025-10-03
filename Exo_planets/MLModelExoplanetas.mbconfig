@@ -8,7 +8,7 @@
     "KeepPunctuations": false,
     "AllowQuoting": false,
     "Type": "TabularFile",
-    "FilePath": "C:\\Users\\JuanR\\Desktop\\RAMITA-JUAN\\ExoPlanets\\Exo_planets\\wwwroot\\lib\\dataClear.csv",
+    "FilePath": "C:\\Users\\JuanR\\Desktop\\RAMITA-JUAN\\ExoPlanets\\Exo_planets\\wwwroot\\dataClear.csv",
     "Delimiter": ";",
     "DecimalMarker": ".",
     "HasHeader": true,
@@ -211,8 +211,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "FastTreeOva",
-        "Score": 0.99503567980959251,
-        "RuntimeInSeconds": 115.809,
+        "Score": 0.99519152006954426,
+        "RuntimeInSeconds": 4.206,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
@@ -293,12 +293,12 @@
             "AddKeyValueAnnotationsAsText": false
           },
           "e3": {
-            "NumberOfLeaves": 15,
-            "MinimumExampleCountPerLeaf": 7,
-            "NumberOfTrees": 4915,
-            "MaximumBinCountPerFeature": 404,
-            "FeatureFraction": 0.99999999,
-            "LearningRate": 0.04695262868010032,
+            "NumberOfLeaves": 33,
+            "MinimumExampleCountPerLeaf": 23,
+            "NumberOfTrees": 18,
+            "MaximumBinCountPerFeature": 332,
+            "FeatureFraction": 0.88452803657586976,
+            "LearningRate": 0.99999977667298645,
             "LabelColumnName": "koi_disposition",
             "FeatureColumnName": "Features",
             "DiskTranspose": false
@@ -308,11 +308,11 @@
       {
         "Version": 1,
         "Type": "Trial",
-        "TrainerName": "LightGbmMulti",
-        "Score": 0.99444515155530055,
-        "RuntimeInSeconds": 2.113,
+        "TrainerName": "FastTreeOva",
+        "Score": 0.99519106325213935,
+        "RuntimeInSeconds": 4.13,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
             "OutputColumnNames": [
               "koi_score",
@@ -390,29 +390,27 @@
             "InputColumnName": "koi_disposition",
             "AddKeyValueAnnotationsAsText": false
           },
-          "e5": {
-            "NumberOfLeaves": 1201,
-            "MinimumExampleCountPerLeaf": 20,
+          "e3": {
+            "NumberOfLeaves": 34,
+            "MinimumExampleCountPerLeaf": 22,
+            "NumberOfTrees": 17,
+            "MaximumBinCountPerFeature": 357,
+            "FeatureFraction": 0.86465953159925835,
             "LearningRate": 0.99999977667298645,
-            "NumberOfTrees": 151,
-            "SubsampleFraction": 0.29668264701634739,
-            "MaximumBinCountPerFeature": 222,
-            "FeatureFraction": 0.97642207516292956,
-            "L1Regularization": 2E-10,
-            "L2Regularization": 0.43708284510395634,
             "LabelColumnName": "koi_disposition",
-            "FeatureColumnName": "Features"
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
           }
         }
       },
       {
         "Version": 1,
         "Type": "Trial",
-        "TrainerName": "LightGbmMulti",
-        "Score": 0.99424941881799089,
-        "RuntimeInSeconds": 3.455,
+        "TrainerName": "FastTreeOva",
+        "Score": 0.99517824885794026,
+        "RuntimeInSeconds": 4.256,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
             "OutputColumnNames": [
               "koi_score",
@@ -490,29 +488,27 @@
             "InputColumnName": "koi_disposition",
             "AddKeyValueAnnotationsAsText": false
           },
-          "e5": {
-            "NumberOfLeaves": 1178,
+          "e3": {
+            "NumberOfLeaves": 34,
             "MinimumExampleCountPerLeaf": 20,
-            "LearningRate": 0.8520818535100706,
-            "NumberOfTrees": 501,
-            "SubsampleFraction": 0.34700726274323912,
-            "MaximumBinCountPerFeature": 238,
-            "FeatureFraction": 0.9636647416607228,
-            "L1Regularization": 2.4227654209413785E-10,
-            "L2Regularization": 0.55361679204593406,
+            "NumberOfTrees": 15,
+            "MaximumBinCountPerFeature": 383,
+            "FeatureFraction": 0.84479102662264693,
+            "LearningRate": 0.95860883410169029,
             "LabelColumnName": "koi_disposition",
-            "FeatureColumnName": "Features"
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
           }
         }
       },
       {
         "Version": 1,
         "Type": "Trial",
-        "TrainerName": "LightGbmMulti",
-        "Score": 0.994085824280825,
-        "RuntimeInSeconds": 1.865,
+        "TrainerName": "FastTreeOva",
+        "Score": 0.99512544069353948,
+        "RuntimeInSeconds": 4.364,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
             "OutputColumnNames": [
               "koi_score",
@@ -590,29 +586,27 @@
             "InputColumnName": "koi_disposition",
             "AddKeyValueAnnotationsAsText": false
           },
-          "e5": {
-            "NumberOfLeaves": 180,
-            "MinimumExampleCountPerLeaf": 20,
+          "e3": {
+            "NumberOfLeaves": 30,
+            "MinimumExampleCountPerLeaf": 23,
+            "NumberOfTrees": 17,
+            "MaximumBinCountPerFeature": 389,
+            "FeatureFraction": 0.85324938484475554,
             "LearningRate": 0.99999977667298645,
-            "NumberOfTrees": 67,
-            "SubsampleFraction": 0.25265271164054831,
-            "MaximumBinCountPerFeature": 221,
-            "FeatureFraction": 0.97768686593688037,
-            "L1Regularization": 2E-10,
-            "L2Regularization": 0.43700238075691766,
             "LabelColumnName": "koi_disposition",
-            "FeatureColumnName": "Features"
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
           }
         }
       },
       {
         "Version": 1,
         "Type": "Trial",
-        "TrainerName": "LightGbmMulti",
-        "Score": 0.99399828093033293,
-        "RuntimeInSeconds": 3.443,
+        "TrainerName": "FastTreeOva",
+        "Score": 0.99489587264901369,
+        "RuntimeInSeconds": 4.332,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
             "OutputColumnNames": [
               "koi_score",
@@ -690,18 +684,16 @@
             "InputColumnName": "koi_disposition",
             "AddKeyValueAnnotationsAsText": false
           },
-          "e5": {
-            "NumberOfLeaves": 4,
-            "MinimumExampleCountPerLeaf": 20,
-            "LearningRate": 0.99999977667298645,
-            "NumberOfTrees": 574,
-            "SubsampleFraction": 0.27745973836710069,
-            "MaximumBinCountPerFeature": 215,
-            "FeatureFraction": 0.99999999,
-            "L1Regularization": 2E-10,
-            "L2Regularization": 0.99999977667298645,
+          "e3": {
+            "NumberOfLeaves": 30,
+            "MinimumExampleCountPerLeaf": 23,
+            "NumberOfTrees": 20,
+            "MaximumBinCountPerFeature": 494,
+            "FeatureFraction": 0.88014437491726583,
+            "LearningRate": 0.52879124347406026,
             "LabelColumnName": "koi_disposition",
-            "FeatureColumnName": "Features"
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
           }
         }
       }

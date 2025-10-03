@@ -73,8 +73,30 @@ async function speakText() {
         window.speechSynthesis.speak(utterance);
 
         // Mostrar la URL en el HTML
+        const metodo = document.getElementById("metodo");
+        const nombre = document.getElementById("nombre");
+        const ratio = document.getElementById("ratio");
+        const temperatura = document.getElementById("temperatura");
+        const año = document.getElementById("año");
         const imageContainer = document.getElementById("imageContainer");
+        if (result.met_desc) {
+            metodo.innerHTML = `<h6>${result.met_desc}</h6>`;
+        }
+        if (result.name_exoplaneta) {
+            nombre.innerHTML = `<h6>${result.name_exoplaneta}</h6>`;
+        }
+        if (result.ratio) {
+            ratio.innerHTML = `<h6>${result.ratio}</h6>`;
 
+        }
+        if (result.temp) {
+            temperatura.innerHTML = `<h6>${result.temp}</h6>`;
+
+        }
+        if (result.yearDisc) {
+            año.innerHTML = `<h6>${result.yearDisc}</h6>`;
+
+        }
         if (result.url) {
             // Si quieres mostrar la imagen directamente:
             imageContainer.innerHTML = `<img src="${result.url}" alt="Imagen relacionada" style="max-width: 100%; height: auto;">`;

@@ -1,0 +1,120 @@
+.text-gradient-animated {
+    background: linear-gradient(270deg, var(--bs-primary), var(--bs-info), var(--bs-danger), var(--bs-primary));
+    background-size: 600% 600%;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s ease infinite;
+    display: inline-block;
+    transition: animation-duration 0.4s ease, transform 0.4s ease;
+}
+
+    /* Al pasar el mouse */
+    .text-gradient-animated:hover {
+        animation-duration: 3s; /* acelera la animación */
+        transform: scale(1.05); /* un pequeño zoom */
+    }
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.custom-card {
+    background: rgba(20, 20, 40, 0.6); /* similar a bg-card/50 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+    .custom-card:hover {
+        border-color: #0d6efd; /* primary */
+        transform: scale(1.05);
+    }
+
+.icon-box {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+
+.space-btn {
+    background: linear-gradient(90deg, #4da6ff, #7f00ff, #ff4da6);
+    background-size: 300% 300%;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem;
+    letter-spacing: 1px;
+    box-shadow: 0 0 12px rgba(127, 0, 255, 0.6), 0 0 24px rgba(77, 166, 255, 0.4);
+    transition: all 0.4s ease;
+    animation: gradientShift 6s ease infinite;
+}
+
+    /* Hover con efecto explosión de luz */
+    .space-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 20px rgba(255, 77, 166, 0.9), 0 0 40px rgba(127, 0, 255, 0.8);
+    }
+
+/* Gradiente animado */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+/* === Estilos espaciales para las tarjetas === */
+.space-card {
+    background: rgba(15, 15, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.1);
+}
+
+    .space-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 0 40px rgba(0, 200, 255, 0.3);
+    }
+
+/* Fondo degradado especial para cada misión */
+.kepler-card .card-planet {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 255, 200, 0.3));
+    font-size: 3rem;
+}
+
+.k2-card .card-planet {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.25), rgba(255, 111, 0, 0.3));
+    font-size: 3rem;
+}
+
+.tess-card .card-planet {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(0, 200, 255, 0.3));
+    font-size: 3rem;
+}

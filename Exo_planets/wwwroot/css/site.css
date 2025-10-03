@@ -17,8 +17,42 @@ html {
   min-height: 100%;
 }
 
+.custom-navbar {
+    background: radial-gradient(circle at top center, #0a0a1a 0%, #000010 100%);
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover con subrayado animado */
+.navbar .nav-link {
+    color: #e0e0ff;
+    position: relative;
+    transition: color 0.3s;
+}
+
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #0d6efd;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .navbar .nav-link:hover {
+        color: #ffffff;
+    }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+
 body {
-  margin-bottom: 60px;
+  background-image: url('../img/Fondo1.png');
+  margin-bottom: 100px;
+  background-size: cover;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +62,10 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+footer {
+    background: radial-gradient(circle at top center, #0a0a1a 0%, #000010 100%);
+    color: #e0e0ff; /* texto claro con tono azulado */
+    padding: 2rem 1rem;
 }

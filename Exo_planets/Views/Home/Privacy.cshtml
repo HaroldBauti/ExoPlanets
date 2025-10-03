@@ -25,7 +25,19 @@
                     <small class="text-light opacity-75">En línea</small>
                 </div>
             </div>
-
+            <div id ="metodo" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div >
+            <div id="nombre" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div>
+            <div id="ratio" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div >
+            <div id="temperatura" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div >
+            <div id="año" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div >
+            <div id="imageContainer" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            </div>
+                
             <!-- Cuerpo del chat (scrollable) -->
             <div class="card-body bg-dark text-light" style="height: 400px; overflow-y: auto;">
                 <!-- Aquí se insertan los mensajes dinámicos -->
@@ -35,8 +47,8 @@
             <!-- Caja de texto inferior -->
             <div class="card-footer bg-secondary-subtle">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Escribe un mensaje...">
-                    <button class="btn btn-primary" type="button">
+                    <input id="userText" type="text" class="form-control" placeholder="Escribe un mensaje...">
+                    <button class="btn btn-primary" type="button" onclick="speakText()">
                         <i class="bi bi-send"></i>
                     </button>
                 </div>
@@ -46,3 +58,5 @@
     </div>
 
 </div>
+
+<script src="~/js/speech.js"></script>

@@ -46,13 +46,13 @@ namespace Exo_planets.Controllers
                 }
                 else
                 {
-                    rsp.url = responseContent.Split(',')[0];
-                    rsp.yearDisc = responseContent.Split(',')[1];
-                    rsp.met_desc = responseContent.Split(',')[2];
-                    rsp.temp = responseContent.Split(',')[3];
-                    rsp.ratio = responseContent.Split(',')[4];
-                    rsp.name_exoplaneta = responseContent.Split(',')[5];
-                    rsp.Value = responseContent.Split(',')[6];
+                    rsp.url = responseContent.Split('\n')[0];
+                    rsp.yearDisc = responseContent.Split('\n')[1];
+                    rsp.met_desc = responseContent.Split('\n')[2];
+                    rsp.temp = responseContent.Split('\n')[3];
+                    rsp.ratio = responseContent.Split('\n')[4];
+                    rsp.name_exoplaneta = responseContent.Split('\n')[5];
+                    rsp.Value = responseContent.Split('\n')[6];
                 }
 
             }

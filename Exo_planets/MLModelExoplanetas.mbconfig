@@ -8,7 +8,7 @@
     "KeepPunctuations": false,
     "AllowQuoting": false,
     "Type": "TabularFile",
-    "FilePath": "C:\\Users\\Harold Bautista\\Downloads\\cumulative_2025.10.02_21.48.44.csv",
+    "FilePath": "E:\\Sistemas\\WEB\\Exo_planets\\Exo_planets\\wwwroot\\cumulative_2025.10.02_21.48.44.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,
@@ -49,7 +49,7 @@
         "ColumnName": "koi_pdisposition",
         "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "String",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -65,7 +65,7 @@
         "ColumnName": "koi_fpflag_nt",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -73,7 +73,7 @@
         "ColumnName": "koi_fpflag_ss",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -81,7 +81,7 @@
         "ColumnName": "koi_fpflag_co",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -89,7 +89,7 @@
         "ColumnName": "koi_fpflag_ec",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -297,7 +297,7 @@
         "ColumnName": "koi_tce_plnt_num",
         "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -305,7 +305,7 @@
         "ColumnName": "koi_tce_delivname",
         "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "String",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -420,7 +420,7 @@
         "Type": "Trial",
         "TrainerName": "FastTreeOva",
         "Score": 0.85077733876241646,
-        "RuntimeInSeconds": 3.825,
+        "RuntimeInSeconds": 4.175,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {

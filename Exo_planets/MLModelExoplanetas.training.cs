@@ -14,7 +14,7 @@ namespace Exo_planets
 {
     public partial class MLModelExoplanetas
     {
-        public const string RetrainFilePath =  @"C:\Users\Harold Bautista\Downloads\cumulative_2025.10.02_21.48.44.csv";
+        public const string RetrainFilePath =  @"E:\Sistemas\WEB\Exo_planets\Exo_planets\wwwroot\cumulative_2025.10.02_21.48.44.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;

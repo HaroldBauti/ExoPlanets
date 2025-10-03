@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="4.0.0" />
     <PackageReference Include="Microsoft.ML.FastTree" Version="4.0.0" />
+    <PackageReference Include="Microsoft.ML.LightGbm" Version="3.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="system.speech" Version="9.0.9" />
   </ItemGroup>

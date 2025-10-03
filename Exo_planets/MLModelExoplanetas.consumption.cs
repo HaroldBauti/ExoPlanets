@@ -19,79 +19,79 @@ namespace Exo_planets
             [ColumnName(@"koi_disposition")]
             public string Koi_disposition { get; set; }
 
-            [LoadColumn(5)]
+            [LoadColumn(4)]
             [ColumnName(@"koi_score")]
             public float Koi_score { get; set; }
 
-            [LoadColumn(6)]
+            [LoadColumn(5)]
             [ColumnName(@"koi_fpflag_nt")]
             public float Koi_fpflag_nt { get; set; }
 
-            [LoadColumn(7)]
+            [LoadColumn(6)]
             [ColumnName(@"koi_fpflag_ss")]
             public float Koi_fpflag_ss { get; set; }
 
-            [LoadColumn(8)]
+            [LoadColumn(7)]
             [ColumnName(@"koi_fpflag_co")]
             public float Koi_fpflag_co { get; set; }
 
-            [LoadColumn(9)]
+            [LoadColumn(8)]
             [ColumnName(@"koi_fpflag_ec")]
             public float Koi_fpflag_ec { get; set; }
 
-            [LoadColumn(10)]
+            [LoadColumn(9)]
             [ColumnName(@"koi_period")]
             public float Koi_period { get; set; }
 
-            [LoadColumn(16)]
+            [LoadColumn(10)]
             [ColumnName(@"koi_impact")]
             public float Koi_impact { get; set; }
 
-            [LoadColumn(19)]
+            [LoadColumn(11)]
             [ColumnName(@"koi_duration")]
             public float Koi_duration { get; set; }
 
-            [LoadColumn(22)]
+            [LoadColumn(12)]
             [ColumnName(@"koi_depth")]
             public float Koi_depth { get; set; }
 
-            [LoadColumn(25)]
+            [LoadColumn(13)]
             [ColumnName(@"koi_prad")]
             public float Koi_prad { get; set; }
 
-            [LoadColumn(28)]
+            [LoadColumn(14)]
             [ColumnName(@"koi_teq")]
             public float Koi_teq { get; set; }
 
-            [LoadColumn(31)]
+            [LoadColumn(15)]
             [ColumnName(@"koi_insol")]
             public float Koi_insol { get; set; }
 
-            [LoadColumn(34)]
+            [LoadColumn(16)]
             [ColumnName(@"koi_model_snr")]
             public float Koi_model_snr { get; set; }
 
-            [LoadColumn(37)]
+            [LoadColumn(17)]
             [ColumnName(@"koi_steff")]
             public float Koi_steff { get; set; }
 
-            [LoadColumn(40)]
+            [LoadColumn(18)]
             [ColumnName(@"koi_slogg")]
             public float Koi_slogg { get; set; }
 
-            [LoadColumn(43)]
+            [LoadColumn(19)]
             [ColumnName(@"koi_srad")]
             public float Koi_srad { get; set; }
 
-            [LoadColumn(46)]
+            [LoadColumn(20)]
             [ColumnName(@"ra")]
             public float Ra { get; set; }
 
-            [LoadColumn(47)]
+            [LoadColumn(21)]
             [ColumnName(@"dec")]
             public float Dec { get; set; }
 
-            [LoadColumn(48)]
+            [LoadColumn(22)]
             [ColumnName(@"koi_kepmag")]
             public float Koi_kepmag { get; set; }
 

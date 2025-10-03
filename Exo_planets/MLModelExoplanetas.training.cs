@@ -14,8 +14,8 @@ namespace Exo_planets
 {
     public partial class MLModelExoplanetas
     {
-        public const string RetrainFilePath =  @"E:\Sistemas\WEB\Exo_planets\Exo_planets\wwwroot\cumulative_2025.10.02_21.48.44.csv";
-        public const char RetrainSeparatorChar = ',';
+        public const string RetrainFilePath =  @"C:\Users\JuanR\Desktop\RAMITA-JUAN\ExoPlanets\Exo_planets\wwwroot\lib\dataClear.csv";
+        public const char RetrainSeparatorChar = ';';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
 
@@ -93,7 +93,7 @@ namespace Exo_planets
             var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"koi_score", @"koi_score"),new InputOutputColumnPair(@"koi_fpflag_nt", @"koi_fpflag_nt"),new InputOutputColumnPair(@"koi_fpflag_ss", @"koi_fpflag_ss"),new InputOutputColumnPair(@"koi_fpflag_co", @"koi_fpflag_co"),new InputOutputColumnPair(@"koi_fpflag_ec", @"koi_fpflag_ec"),new InputOutputColumnPair(@"koi_period", @"koi_period"),new InputOutputColumnPair(@"koi_impact", @"koi_impact"),new InputOutputColumnPair(@"koi_duration", @"koi_duration"),new InputOutputColumnPair(@"koi_depth", @"koi_depth"),new InputOutputColumnPair(@"koi_prad", @"koi_prad"),new InputOutputColumnPair(@"koi_teq", @"koi_teq"),new InputOutputColumnPair(@"koi_insol", @"koi_insol"),new InputOutputColumnPair(@"koi_model_snr", @"koi_model_snr"),new InputOutputColumnPair(@"koi_steff", @"koi_steff"),new InputOutputColumnPair(@"koi_slogg", @"koi_slogg"),new InputOutputColumnPair(@"koi_srad", @"koi_srad"),new InputOutputColumnPair(@"ra", @"ra"),new InputOutputColumnPair(@"dec", @"dec"),new InputOutputColumnPair(@"koi_kepmag", @"koi_kepmag")})      
                                     .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"koi_score",@"koi_fpflag_nt",@"koi_fpflag_ss",@"koi_fpflag_co",@"koi_fpflag_ec",@"koi_period",@"koi_impact",@"koi_duration",@"koi_depth",@"koi_prad",@"koi_teq",@"koi_insol",@"koi_model_snr",@"koi_steff",@"koi_slogg",@"koi_srad",@"ra",@"dec",@"koi_kepmag"}))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"koi_disposition",inputColumnName:@"koi_disposition",addKeyValueAnnotationsAsText:false))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.FastTree(new FastTreeBinaryTrainer.Options(){NumberOfLeaves=4,MinimumExampleCountPerLeaf=20,NumberOfTrees=4,MaximumBinCountPerFeature=254,FeatureFraction=1,LearningRate=0.09999999999999998,LabelColumnName=@"koi_disposition",FeatureColumnName=@"Features",DiskTranspose=false}),labelColumnName: @"koi_disposition"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.FastTree(new FastTreeBinaryTrainer.Options(){NumberOfLeaves=15,MinimumExampleCountPerLeaf=7,NumberOfTrees=4915,MaximumBinCountPerFeature=404,FeatureFraction=0.99999999,LearningRate=0.04695262868010032,LabelColumnName=@"koi_disposition",FeatureColumnName=@"Features",DiskTranspose=false}),labelColumnName: @"koi_disposition"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"PredictedLabel",inputColumnName:@"PredictedLabel"));
 
             return pipeline;

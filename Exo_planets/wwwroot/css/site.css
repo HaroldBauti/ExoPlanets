@@ -65,7 +65,6 @@ body {
 }
 
 footer {
-    background: radial-gradient(circle at top center, #0a0a1a 0%, #000010 100%);
-    color: #e0e0ff; /* texto claro con tono azulado */
+    color: #e0e0ff;
     padding: 2rem 1rem;
 }

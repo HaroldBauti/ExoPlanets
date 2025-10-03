@@ -8,8 +8,8 @@
     "KeepPunctuations": false,
     "AllowQuoting": false,
     "Type": "TabularFile",
-    "FilePath": "E:\\Sistemas\\WEB\\Exo_planets\\Exo_planets\\wwwroot\\cumulative_2025.10.02_21.48.44.csv",
-    "Delimiter": ",",
+    "FilePath": "C:\\Users\\JuanR\\Desktop\\RAMITA-JUAN\\ExoPlanets\\Exo_planets\\wwwroot\\lib\\dataClear.csv",
+    "Delimiter": ";",
     "DecimalMarker": ".",
     "HasHeader": true,
     "ColumnProperties": [
@@ -46,14 +46,6 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_pdisposition",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "String",
-        "IsCategorical": true,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_score",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
@@ -65,7 +57,7 @@
         "ColumnName": "koi_fpflag_nt",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       },
@@ -73,7 +65,7 @@
         "ColumnName": "koi_fpflag_ss",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       },
@@ -81,7 +73,7 @@
         "ColumnName": "koi_fpflag_co",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       },
@@ -89,53 +81,13 @@
         "ColumnName": "koi_fpflag_ec",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       },
       {
         "ColumnName": "koi_period",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_period_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_period_err2",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_time0bk",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_time0bk_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_time0bk_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -150,40 +102,8 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_impact_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_impact_err2",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_duration",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_duration_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_duration_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -198,40 +118,8 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_depth_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_depth_err2",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_prad",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_prad_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_prad_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -246,40 +134,8 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_teq_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "String",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_teq_err2",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "String",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_insol",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_insol_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_insol_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -294,40 +150,8 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_tce_plnt_num",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": true,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_tce_delivname",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "String",
-        "IsCategorical": true,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_steff",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_steff_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_steff_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -342,40 +166,8 @@
         "Version": 5
       },
       {
-        "ColumnName": "koi_slogg_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_slogg_err2",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
         "ColumnName": "koi_srad",
         "ColumnPurpose": "Feature",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_srad_err1",
-        "ColumnPurpose": "Ignore",
-        "ColumnDataFormat": "Single",
-        "IsCategorical": false,
-        "Type": "Column",
-        "Version": 5
-      },
-      {
-        "ColumnName": "koi_srad_err2",
-        "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
@@ -419,8 +211,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "FastTreeOva",
-        "Score": 0.85077733876241646,
-        "RuntimeInSeconds": 4.175,
+        "Score": 0.99503567980959251,
+        "RuntimeInSeconds": 115.809,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e10",
           "e0": {
@@ -501,15 +293,415 @@
             "AddKeyValueAnnotationsAsText": false
           },
           "e3": {
-            "NumberOfLeaves": 4,
-            "MinimumExampleCountPerLeaf": 20,
-            "NumberOfTrees": 4,
-            "MaximumBinCountPerFeature": 254,
-            "FeatureFraction": 1.0,
-            "LearningRate": 0.099999999999999978,
+            "NumberOfLeaves": 15,
+            "MinimumExampleCountPerLeaf": 7,
+            "NumberOfTrees": 4915,
+            "MaximumBinCountPerFeature": 404,
+            "FeatureFraction": 0.99999999,
+            "LearningRate": 0.04695262868010032,
             "LabelColumnName": "koi_disposition",
             "FeatureColumnName": "Features",
             "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.99444515155530055,
+        "RuntimeInSeconds": 2.113,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "koi_disposition",
+            "InputColumnName": "koi_disposition",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfLeaves": 1201,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 151,
+            "SubsampleFraction": 0.29668264701634739,
+            "MaximumBinCountPerFeature": 222,
+            "FeatureFraction": 0.97642207516292956,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.43708284510395634,
+            "LabelColumnName": "koi_disposition",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.99424941881799089,
+        "RuntimeInSeconds": 3.455,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "koi_disposition",
+            "InputColumnName": "koi_disposition",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfLeaves": 1178,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.8520818535100706,
+            "NumberOfTrees": 501,
+            "SubsampleFraction": 0.34700726274323912,
+            "MaximumBinCountPerFeature": 238,
+            "FeatureFraction": 0.9636647416607228,
+            "L1Regularization": 2.4227654209413785E-10,
+            "L2Regularization": 0.55361679204593406,
+            "LabelColumnName": "koi_disposition",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.994085824280825,
+        "RuntimeInSeconds": 1.865,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "koi_disposition",
+            "InputColumnName": "koi_disposition",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfLeaves": 180,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 67,
+            "SubsampleFraction": 0.25265271164054831,
+            "MaximumBinCountPerFeature": 221,
+            "FeatureFraction": 0.97768686593688037,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.43700238075691766,
+            "LabelColumnName": "koi_disposition",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.99399828093033293,
+        "RuntimeInSeconds": 3.443,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5 * e10",
+          "e0": {
+            "OutputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "koi_score",
+              "koi_fpflag_nt",
+              "koi_fpflag_ss",
+              "koi_fpflag_co",
+              "koi_fpflag_ec",
+              "koi_period",
+              "koi_impact",
+              "koi_duration",
+              "koi_depth",
+              "koi_prad",
+              "koi_teq",
+              "koi_insol",
+              "koi_model_snr",
+              "koi_steff",
+              "koi_slogg",
+              "koi_srad",
+              "ra",
+              "dec",
+              "koi_kepmag"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e10": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "OutputColumnName": "koi_disposition",
+            "InputColumnName": "koi_disposition",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 574,
+            "SubsampleFraction": 0.27745973836710069,
+            "MaximumBinCountPerFeature": 215,
+            "FeatureFraction": 0.99999999,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.99999977667298645,
+            "LabelColumnName": "koi_disposition",
+            "FeatureColumnName": "Features"
           }
         }
       }
@@ -529,7 +721,7 @@
     },
     "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7 + e8 + e9) * e10",
     "MetricName": "MacroAccuracy",
-    "ModelFilePath": "E:\\Sistemas\\WEB\\Exo_planets\\Exo_planets\\MLModelExoplanetas.mlnet"
+    "ModelFilePath": "C:\\Users\\JuanR\\Desktop\\RAMITA-JUAN\\ExoPlanets\\Exo_planets\\MLModelExoplanetas.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 5,
@@ -537,7 +729,7 @@
     "Version": 2,
     "Subsampling": false,
     "Type": "ClassificationTrainingOption",
-    "TrainingTime": 10,
+    "TrainingTime": 3600,
     "LabelColumn": "koi_disposition",
     "ValidationOption": {
       "Version": 0,

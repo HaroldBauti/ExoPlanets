@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "¡BIENVENIDO A LA MISIÓN (app nombre)!";
+    const text = "\u00A1BIENVENIDO A LA MISI\u00D3N EXOPLANETAS!";
     const element = document.getElementById("typewriter");
     let i = 0;
 
     function typeWriter() {
         if (i < text.length) {
-            element.textContent += text.charAt(i);
+            element.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 120); // velocidad de escritura
+            setTimeout(typeWriter, 120);
         }
     }
 

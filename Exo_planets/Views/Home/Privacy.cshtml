@@ -25,19 +25,59 @@
                     <small class="text-light opacity-75">En línea</small>
                 </div>
             </div>
-            <div id ="metodo" class="card-header bg-primary text-white d-flex align-items-center gap-3">
-            </div >
-            <div id="nombre" class="card-header bg-primary text-white d-flex align-items-center gap-3">
+
+            <!-- Datos de exoplanetas con diseño mejorado usando solo Bootstrap -->
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <div id="metodo" class="card-header bg-info text-white d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-binoculars me-2"></i>
+                            <span>Método</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="nombre" class="card-header bg-success text-white d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-stars me-2"></i>
+                            <span>Exoplaneta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="ratio" class="card-header bg-warning text-dark d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-rulers me-2"></i>
+                            <span>Radio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="temperatura" class="card-header bg-danger text-white d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-thermometer-high me-2"></i>
+                            <span>Temperatura</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="año" class="card-header bg-secondary text-white d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-calendar-event me-2"></i>
+                            <span>Descubierto</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="imageContainer" class="card-header bg-dark text-white d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-image me-2"></i>
+                            <span>Imagen del Exoplaneta</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="ratio" class="card-header bg-primary text-white d-flex align-items-center gap-3">
-            </div >
-            <div id="temperatura" class="card-header bg-primary text-white d-flex align-items-center gap-3">
-            </div >
-            <div id="año" class="card-header bg-primary text-white d-flex align-items-center gap-3">
-            </div >
-            <div id="imageContainer" class="card-header bg-primary text-white d-flex align-items-center gap-3">
-            </div>
-                
+
             <!-- Cuerpo del chat (scrollable) -->
             <div class="card-body bg-dark text-light" style="height: 400px; overflow-y: auto;">
                 <!-- Aquí se insertan los mensajes dinámicos -->
@@ -60,3 +100,4 @@
 </div>
 
 <script src="~/js/speech.js"></script>
+@* <script src="~/js/speech.js"></script> *@

@@ -1,0 +1,480 @@
+﻿/* styles-exoplanetas.css */
+/* Sistema Solar Interactivo para Exoplanetas */
+
+.solar-system-wrapper {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Planeta Central */
+.main-exoplanet {
+    position: relative;
+    z-index: 10;
+}
+
+.central-orbit {
+    position: relative;
+    animation: float-central 8s ease-in-out infinite;
+}
+
+.central-planet {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(13, 110, 253, 0.4), inset -15px -15px 30px rgba(0,0,0,0.3), inset 15px 15px 30px rgba(255,255,255,0.1);
+    border: 3px solid rgba(255,255,255,0.2);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.planet-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.planet-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(13,110,253,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse-glow 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+.central-planet:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 80px rgba(13, 110, 253, 0.6), inset -15px -15px 30px rgba(0,0,0,0.3), inset 15px 15px 30px rgba(255,255,255,0.1);
+}
+
+    .central-planet:hover .planet-image {
+        transform: scale(1.1);
+    }
+
+/* Contenedor de órbitas */
+.planets-orbit-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+}
+
+/* Órbitas */
+.planet-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    animation: orbit-1 25s linear infinite;
+}
+
+.orbit-2 {
+    animation: orbit-2 30s linear infinite;
+}
+
+.orbit-3 {
+    animation: orbit-3 35s linear infinite;
+}
+
+.orbit-4 {
+    animation: orbit-4 40s linear infinite;
+}
+
+.orbit-5 {
+    animation: orbit-5 45s linear infinite;
+}
+
+/* Planetas de Datos */
+.data-planet {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.planet-content {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transform: translateZ(20px);
+}
+
+    .planet-content i {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        display: block;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+    }
+
+.planet-value {
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.planet-content small {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Anillos de planeta */
+.planet-ring {
+    position: absolute;
+    width: 140%;
+    height: 20px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    border-radius: 50%;
+    top: 50%;
+    left: -20%;
+    transform: translateY(-50%) rotateX(75deg);
+    opacity: 0.6;
+}
+
+/* Colores y estilos específicos para cada planeta */
+.planet-method {
+    background: linear-gradient(135deg, #0dcaf0 0%, #0099cc 100%);
+    box-shadow: 0 8px 25px rgba(13, 202, 240, 0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+}
+
+.planet-name {
+    background: linear-gradient(135deg, #198754 0%, #0f5132 100%);
+    box-shadow: 0 8px 25px rgba(25, 135, 84, 0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+}
+
+.planet-ratio {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+}
+
+.planet-temp {
+    background: linear-gradient(135deg, #dc3545 0%, #a71e2a 100%);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+}
+
+.planet-year {
+    background: linear-gradient(135deg, #6f42c1 0%, #4e2d8c 100%);
+    box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3), inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.1);
+}
+
+/* Efectos Hover 3D */
+.data-planet:hover {
+    transform: scale(1.3) rotateY(180deg) rotateX(15deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px currentColor, inset -8px -8px 15px rgba(0,0,0,0.3), inset 8px 8px 15px rgba(255,255,255,0.15);
+    z-index: 20;
+}
+
+    .data-planet:hover .planet-content {
+        transform: translateZ(30px) rotateY(-180deg);
+    }
+
+/* Brillo específico al hover */
+.planet-method:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 40px rgba(13, 202, 240, 0.6) !important;
+}
+
+.planet-name:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 40px rgba(25, 135, 84, 0.6) !important;
+}
+
+.planet-ratio:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 40px rgba(255, 193, 7, 0.6) !important;
+}
+
+.planet-temp:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 40px rgba(220, 53, 69, 0.6) !important;
+}
+
+.planet-year:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 40px rgba(111, 66, 193, 0.6) !important;
+}
+
+/* Animaciones */
+@keyframes float-central {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes orbit-1 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(250px) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(250px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit-2 {
+    from {
+        transform: translate(-50%, -50%) rotate(72deg) translateX(300px) rotate(-72deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(432deg) translateX(300px) rotate(-432deg);
+    }
+}
+
+@keyframes orbit-3 {
+    from {
+        transform: translate(-50%, -50%) rotate(144deg) translateX(350px) rotate(-144deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(504deg) translateX(350px) rotate(-504deg);
+    }
+}
+
+@keyframes orbit-4 {
+    from {
+        transform: translate(-50%, -50%) rotate(216deg) translateX(300px) rotate(-216deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(576deg) translateX(300px) rotate(-576deg);
+    }
+}
+
+@keyframes orbit-5 {
+    from {
+        transform: translate(-50%, -50%) rotate(288deg) translateX(250px) rotate(-288deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(648deg) translateX(250px) rotate(-648deg);
+    }
+}
+
+/* Input con tema espacial */
+.space-input-group {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+    .space-input-group:focus-within {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(102, 126, 234, 0.3) !important;
+        border-color: rgba(102, 126, 234, 0.5);
+    }
+
+    .space-input-group .form-control {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: 500;
+    }
+
+        .space-input-group .form-control::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .space-input-group .form-control:focus {
+            background: transparent;
+            box-shadow: none;
+            color: white;
+        }
+
+    .space-input-group .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .space-input-group .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .planets-orbit-container {
+        width: 600px;
+        height: 600px;
+    }
+
+    @keyframes orbit-1 {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(200px) rotate(-360deg);
+        }
+    }
+
+    @keyframes orbit-2 {
+        from {
+            transform: translate(-50%, -50%) rotate(72deg) translateX(240px) rotate(-72deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(432deg) translateX(240px) rotate(-432deg);
+        }
+    }
+
+    @keyframes orbit-3 {
+        from {
+            transform: translate(-50%, -50%) rotate(144deg) translateX(280px) rotate(-144deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(504deg) translateX(280px) rotate(-504deg);
+        }
+    }
+
+    @keyframes orbit-4 {
+        from {
+            transform: translate(-50%, -50%) rotate(216deg) translateX(240px) rotate(-216deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(576deg) translateX(240px) rotate(-576deg);
+        }
+    }
+
+    @keyframes orbit-5 {
+        from {
+            transform: translate(-50%, -50%) rotate(288deg) translateX(200px) rotate(-288deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(648deg) translateX(200px) rotate(-648deg);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .solar-system-wrapper {
+        min-height: 50vh;
+    }
+
+    .central-planet {
+        width: 150px;
+        height: 150px;
+    }
+
+    .planets-orbit-container {
+        width: 400px;
+        height: 400px;
+    }
+
+    .data-planet {
+        width: 80px;
+        height: 80px;
+    }
+
+    .planet-content {
+        padding: 10px;
+    }
+
+        .planet-content i {
+            font-size: 1.1rem;
+        }
+
+    .planet-value {
+        font-size: 0.75rem;
+    }
+
+    .planet-content small {
+        font-size: 0.65rem;
+    }
+
+    @keyframes orbit-1 {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+    }
+
+    @keyframes orbit-2 {
+        from {
+            transform: translate(-50%, -50%) rotate(72deg) translateX(180px) rotate(-72deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(432deg) translateX(180px) rotate(-432deg);
+        }
+    }
+
+    @keyframes orbit-3 {
+        from {
+            transform: translate(-50%, -50%) rotate(144deg) translateX(210px) rotate(-144deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(504deg) translateX(210px) rotate(-504deg);
+        }
+    }
+
+    @keyframes orbit-4 {
+        from {
+            transform: translate(-50%, -50%) rotate(216deg) translateX(180px) rotate(-216deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(576deg) translateX(180px) rotate(-576deg);
+        }
+    }
+
+    @keyframes orbit-5 {
+        from {
+            transform: translate(-50%, -50%) rotate(288deg) translateX(150px) rotate(-288deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(648deg) translateX(150px) rotate(-648deg);
+        }
+    }
+}

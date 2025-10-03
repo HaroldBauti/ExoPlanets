@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<form asp-action="Predecir" method="post">
+    <div class="form-group">
+        <label for="Koi_score">Koi_score</label>
+        <input type="number" step="any" name="Koi_score" id="Koi_score" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Koi_fpflag_nt">Koi_fpflag_nt</label>
+        <input type="number" step="any" name="Koi_fpflag_nt" id="Koi_fpflag_nt" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_fpflag_ss">Koi_fpflag_ss</label>
+        <input type="number" step="any" name="Koi_fpflag_ss" id="Koi_fpflag_ss" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_fpflag_co">Koi_fpflag_co</label>
+        <input type="number" step="any" name="Koi_fpflag_co" id="Koi_fpflag_co" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_fpflag_ec">Koi_fpflag_ec</label>
+        <input type="number" step="any" name="Koi_fpflag_ec" id="Koi_fpflag_ec" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_period">Koi_period</label>
+        <input type="number" step="any" name="Koi_period" id="Koi_period" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_impact">Koi_impact</label>
+        <input type="number" step="any" name="Koi_impact" id="Koi_impact" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_duration">Koi_duration</label>
+        <input type="number" step="any" name="Koi_duration" id="Koi_duration" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_depth">Koi_depth</label>
+        <input type="number" step="any" name="Koi_depth" id="Koi_depth" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_prad">Koi_prad</label>
+        <input type="number" step="any" name="Koi_prad" id="Koi_prad" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_teq">Koi_teq</label>
+        <input type="number" step="any" name="Koi_teq" id="Koi_teq" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_insol">Koi_insol</label>
+        <input type="number" step="any" name="Koi_insol" id="Koi_insol" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_model_snr">Koi_model_snr</label>
+        <input type="number" step="any" name="Koi_model_snr" id="Koi_model_snr" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_steff">Koi_steff</label>
+        <input type="number" step="any" name="Koi_steff" id="Koi_steff" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_slogg">Koi_slogg</label>
+        <input type="number" step="any" name="Koi_slogg" id="Koi_slogg" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_srad">Koi_srad</label>
+        <input type="number" step="any" name="Koi_srad" id="Koi_srad" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Ra">Ra</label>
+        <input type="number" step="any" name="Ra" id="Ra" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Dec">Dec</label>
+        <input type="number" step="any" name="Dec" id="Dec" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Koi_kepmag">Koi_kepmag</label>
+        <input type="number" step="any" name="Koi_kepmag" id="Koi_kepmag" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Predecir</button>
+
+</form>
+
+@if (ViewData["PredictedLabel"] != null)
+{
+    @* <div>
+        <h3>Resultado de la Predicción</h3>
+        <p>Predicción: @ViewData["PredictedLabel"]</p>
+    </div> *@
+    <div class="mt-4">
+        <h3>Resultado de la Predicción</h3>
+        <p><strong>Predicción:</strong> @ViewData["PredictedLabel"]</p>
+        <p><strong>CONFIRMED:</strong> @ViewData["ConfirmedPercent"]</p>
+        <p><strong>FALSE POSITIVE:</strong> @ViewData["FalsePositivePercent"]</p>
+    </div>
+}

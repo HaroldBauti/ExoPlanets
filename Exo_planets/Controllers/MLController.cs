@@ -1,36 +1,62 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Exo_planets.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Exo_planets.Controllers
 {
     public class MLController : Controller
     {
-        void predecir() {
+        [HttpPost]
+        public IActionResult Predecir(ModeloImput input)
+        {
             //Load sample data
-            var sampleData = new MLModelExoplanetas.ModelInput()
+            if (ModelState.IsValid)
             {
-                Koi_score = 0.969F,
-                Koi_fpflag_nt = 0F,
-                Koi_fpflag_ss = 0F,
-                Koi_fpflag_co = 0F,
-                Koi_fpflag_ec = 0F,
-                Koi_period = 54.418385F,
-                Koi_impact = 0.586F,
-                Koi_duration = 4.507F,
-                Koi_depth = 874.8F,
-                Koi_prad = 2.83F,
-                Koi_teq = 443F,
-                Koi_insol = 9.11F,
-                Koi_model_snr = 25.8F,
-                Koi_steff = 5455F,
-                Koi_slogg = 4.467F,
-                Koi_srad = 0.927F,
-                Ra = 291.93423F,
-                Dec = 48.14165F,
-                Koi_kepmag = 15.347F,
-            };
+                var sampleData = new MLModelExoplanetas.ModelInput()
+                {
+                    Koi_score = input.Koi_score,
+                    Koi_fpflag_nt = input.Koi_fpflag_nt,
+                    Koi_fpflag_ss = input.Koi_fpflag_ss,
+                    Koi_fpflag_co = input.Koi_fpflag_co,
+                    Koi_fpflag_ec = input.Koi_fpflag_ec,
+                    Koi_period = input.Koi_period,
+                    Koi_impact = input.Koi_impact,
+                    Koi_duration = input.Koi_duration,
+                    Koi_depth = input.Koi_depth,
+                    Koi_prad = input.Koi_prad,
+                    Koi_teq = input.Koi_teq,
+                    Koi_insol = input.Koi_insol,
+                    Koi_model_snr = input.Koi_model_snr,
+                    Koi_steff = input.Koi_steff,
+                    Koi_slogg = input.Koi_slogg,
+                    Koi_srad = input.Koi_srad,
+                    Ra = input.Ra,
+                    Dec = input.Dec,
+                    Koi_kepmag = input.Koi_kepmag,
+                };
 
-            //Load model and predict output
-            var result = MLModelExoplanetas.Predict(sampleData);
+                //Load model and predict output
+                var result = MLModelExoplanetas.Predict(sampleData);
+                string resultadoPorcentaje="";
+                float[] scores = result.Score;
+                float confirmedPercent = scores[0] * 100;
+                float falsePositivePercent = scores[1] * 100;
+                if (confirmedPercent>falsePositivePercent)
+                {
+                    resultadoPorcentaje=result.PredictedLabel+" " + confirmedPercent.ToString("0.##") + "%";
+                }
+                else
+                {
+                    resultadoPorcentaje = result.PredictedLabel + " " + falsePositivePercent.ToString("0.##") + "%";
+
+                }
+                //ViewData["PredictedLabel"] = result.PredictedLabel;
+                ViewData["PredictedLabel"] = resultadoPorcentaje;
+                ViewData["ConfirmedPercent"] = confirmedPercent.ToString("0.##") + "%";
+                ViewData["FalsePositivePercent"] = falsePositivePercent.ToString("0.##") + "%";
+                return View("Index", input); // Volver a la vista con los datos ingresados
+            }
+
+            return View("Index");
         }
 
         public IActionResult Index()

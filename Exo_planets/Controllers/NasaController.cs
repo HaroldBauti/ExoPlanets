@@ -37,20 +37,28 @@ namespace Exo_planets.Controllers
                 {
                     int indexOf = responseContent.IndexOf("N/A");
                     rsp.url = "N/A";
-                    rsp.output = "N/A";
+                    rsp.name_exoplaneta = "N/A";
+                    rsp.yearDisc = "N/A";
+                    rsp.met_desc = "N/A";
+                    rsp.temp = "N/A";
+                    rsp.ratio = "N/A";
                     rsp.Value = responseContent.Substring(indexOf + 4).TrimStart();
                 }
                 else
                 {
                     rsp.url = responseContent.Split(',')[0];
-                    rsp.output = responseContent.Split(',')[1];
-                    rsp.Value = responseContent.Split(',')[2];
+                    rsp.yearDisc = responseContent.Split(',')[1];
+                    rsp.met_desc = responseContent.Split(',')[2];
+                    rsp.temp = responseContent.Split(',')[3];
+                    rsp.ratio = responseContent.Split(',')[4];
+                    rsp.name_exoplaneta = responseContent.Split(',')[5];
+                    rsp.Value = responseContent.Split(',')[6];
                 }
 
             }
             catch (Exception ex)
             {
-                rsp.output = $"Error: {ex.Message}";
+                rsp.name_exoplaneta = $"Error: {ex.Message}";
             }
 
             return Ok(rsp);

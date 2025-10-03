@@ -1,6 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container my-4">
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="max-width: 700px; margin: auto;">
+
+        <!-- Encabezado del chat -->
+        <div class="card-header bg-primary text-white d-flex align-items-center gap-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                 style="width: 40px; height: 40px; background: rgba(255,255,255,0.2);">
+                <i class="bi bi-robot fs-5"></i>
+            </div>
+            <div>
+                <h6 class="mb-0 fw-semibold">Asistente Espacial</h6>
+                <small class="text-light opacity-75">En línea</small>
+            </div>
+        </div>
+
+        <!-- Cuerpo del chat (scrollable) -->
+        <div class="card-body bg-dark text-light" style="height: 400px; overflow-y: auto;">
+            <!-- Aquí se insertan los mensajes dinámicos -->
+            <p class="text-muted text-center mt-5">[ Mensajes aparecerán aquí 🚀 ]</p>
+        </div>
+
+        <!-- Caja de texto inferior -->
+        <div class="card-footer bg-secondary-subtle">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Escribe un mensaje...">
+                <button class="btn btn-primary" type="button">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

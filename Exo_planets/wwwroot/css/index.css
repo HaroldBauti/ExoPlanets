@@ -1,0 +1,74 @@
+.text-gradient-animated {
+    background: linear-gradient(270deg, var(--bs-primary), var(--bs-info), var(--bs-danger), var(--bs-primary));
+    background-size: 600% 600%;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s ease infinite;
+    display: inline-block;
+    transition: animation-duration 0.4s ease, transform 0.4s ease;
+}
+
+    /* Al pasar el mouse */
+    .text-gradient-animated:hover {
+        animation-duration: 3s; /* acelera la animación */
+        transform: scale(1.05); /* un pequeño zoom */
+    }
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* === Estilos espaciales para las tarjetas === */
+.space-card {
+    background: rgba(15, 15, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.1);
+}
+
+    .space-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 0 40px rgba(0, 200, 255, 0.3);
+    }
+
+/* Fondo degradado especial para cada misión */
+.kepler-card .card-planet {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 255, 200, 0.3));
+    font-size: 3rem;
+}
+
+.k2-card .card-planet {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.25), rgba(255, 111, 0, 0.3));
+    font-size: 3rem;
+}
+
+.tess-card .card-planet {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(0, 200, 255, 0.3));
+    font-size: 3rem;
+}
+
+/* Botones espaciales */
+.btn-space {
+    border: 1px solid rgba(0, 200, 255, 0.6);
+    color: #00e5ff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+    .btn-space:hover {
+        background: rgba(0, 200, 255, 0.1);
+        color: #fff;
+        box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+    }

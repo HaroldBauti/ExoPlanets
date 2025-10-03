@@ -53,6 +53,7 @@ namespace Exo_planets.Controllers
                     rsp.ratio = responseContent.Split(',')[4];
                     rsp.name_exoplaneta = responseContent.Split(',')[5];
                     rsp.Value = responseContent.Split(',')[6];
+
                 }
 
             }

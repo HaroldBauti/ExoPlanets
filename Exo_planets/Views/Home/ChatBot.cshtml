@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Chatbot Exoplanetas";
+}
+
+<link rel="stylesheet" href="~/css/chatbot-exoplanetas.css">
+
+<div class="chatbot-container">
+    <section class="hero-section text-center py-5">
+        <div class="container">
+            <h1 class="hero-title">Chatbot de Exoplanetas</h1>
+            <p class="hero-subtitle">Descubre el universo a través de la inteligencia artificial</p>
+        </div>
+    </section>
+
+    <div class="container main-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+
+                <!-- Tarjeta principal del chat -->
+                <div class="chat-card">
+
+                    <!-- Encabezado del chat -->
+                    <div class="chat-header">
+                        <div class="header-content">
+                            <div class="bot-info">
+                                <div class="bot-avatar">
+                                    <img src="~/img/logo-cahtbot.jpg" class="bot-avatar" />
+                                </div>
+                                <div class="bot-details">
+                                    <h5 class="bot-name">Asistente Exoplanetas</h5>
+                                    <div class="bot-status">
+                                        <span class="status-indicator online"></span>
+                                        <span class="status-text">En línea</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-actions">
+                                <button id="toggleAudio" class="btn-icon" onclick="toggleAudio()" title="Alternar audio">
+                                    <i class="bi bi-volume-up"></i>
+                                </button>
+                                <button class="btn-icon" onclick="clearChat()" title="Limpiar chat">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenedor de mensajes -->
+                    <div id="chatContainer" class="chat-messages">
+                        <div id="chatMessages" class="messages-container">
+                            <!-- Mensajes se cargan aquí dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Input para mensajes -->
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input type="text"
+                                   id="userText"
+                                   class="form-control message-input"
+                                   placeholder="Escribe tu pregunta sobre exoplanetas..."
+                                   maxlength="500">
+                            <button class="btn btn-primary send-button" onclick="chatbot.sendMessage()">
+                                <i class="bi bi-send-fill"></i>
+                                <span class="btn-text">Enviar</span>
+                            </button>
+                        </div>
+                        <div class="input-footer">
+                            <small class="text-muted">
+                                Presiona <kbd>Enter</kbd> para enviar • Los mensajes se guardan automáticamente
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+
+      
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/speech.js"></script>

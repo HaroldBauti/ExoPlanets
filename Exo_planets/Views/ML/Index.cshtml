@@ -1,116 +1,252 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Modelo de Predicción de Exoplanetas";
 }
-<form asp-action="Predecir" method="post">
-    <div class="form-group">
-        <label for="Koi_score">Koi_score</label>
-        <input type="number" step="any" name="Koi_score" id="Koi_score" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label for="Koi_fpflag_nt">Koi_fpflag_nt</label>
-        <input type="number" step="any" name="Koi_fpflag_nt" id="Koi_fpflag_nt" class="form-control" required />
-    </div>
 
-    <div class="form-group">
-        <label for="Koi_fpflag_ss">Koi_fpflag_ss</label>
-        <input type="number" step="any" name="Koi_fpflag_ss" id="Koi_fpflag_ss" class="form-control" required />
+<link rel="stylesheet" href="~/css/model-predic.css">
+
+<div class="">
+    <div class="stars" id="stars"></div>
+
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xxl-10">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="header-title"> Modelo de Predicción de Exoplanetas</h1>
+                    <p class="text-light opacity-75">Sistema de inteligencia artificial para detectar candidatos a exoplanetas</p>
+                </div>
+
+                <form asp-action="Predecir" method="post" class="glass-card p-4 p-md-5">
+                    <div class="form-grid">
+                        <!-- Grupo 1: Puntajes y Flags -->
+                        <div>
+                            <h3 class="section-title">📊 Puntajes y Validación</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Puntaje KOI
+                                    <small>Probabilidad de que sea un exoplaneta real</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_score" class="form-control-custom" required value="0" placeholder="0.984" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Falso Positivo - No Tránsito
+                                    <small>Indica si el evento no es un tránsito real</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_fpflag_nt" class="form-control-custom" required value="0" placeholder="0" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Falso Positivo - Sistema Estelar
+                                    <small>Confusión con estrellas vecinas</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_fpflag_ss" class="form-control-custom" required value="0" placeholder="0" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Falso Positivo - Contaminación Óptica
+                                    <small>Señal afectada por otra fuente de luz</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_fpflag_co" class="form-control-custom" required value="0" placeholder="0" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Falso Positivo - Eclipse Estelar
+                                    <small>Señal causada por eclipses binarios</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_fpflag_ec" class="form-control-custom" required value="0" placeholder="0" />
+                            </div>
+                        </div>
+
+                        <!-- Grupo 2: Parámetros Orbitales -->
+                        <div>
+                            <h3 class="section-title">🪐 Parámetros Orbitales</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Periodo Orbital
+                                    <small>Días para una órbita completa</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_period" class="form-control-custom" required value="0" placeholder="12.439" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Parámetro de Impacto
+                                    <small>Centralidad del tránsito (0-1)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_impact" class="form-control-custom" required value="0" placeholder="0.663" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Duración del Tránsito
+                                    <small>Horas de duración</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_duration" class="form-control-custom" required value="0" placeholder="3.176" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Profundidad del Tránsito
+                                    <small>Reducción de brillo en ppm</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_depth" class="form-control-custom" required value="0" placeholder="254.3" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Radio Planetario
+                                    <small>Tamaño en radios terrestres (R⊕)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_prad" class="form-control-custom" required value="0" placeholder="1.3" />
+                            </div>
+                        </div>
+
+                        <!-- Grupo 3: Características del Sistema -->
+                        <div>
+                            <h3 class="section-title">⭐ Características Estelares</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Temperatura de Equilibrio
+                                    <small>Temperatura estimada del planeta (K)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_teq" class="form-control-custom" required value="0" placeholder="627" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Insolación
+                                    <small>Energía recibida (múltiplos de Tierra)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_insol" class="form-control-custom" required value="0" placeholder="36.57" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Relación Señal/Ruido
+                                    <small>Calidad de la detección</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_model_snr" class="form-control-custom" required value="0" placeholder="24.9" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Temperatura Estelar
+                                    <small>Temperatura superficial (K)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_steff" class="form-control-custom" required value="0" placeholder="4987" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Gravedad Estelar
+                                    <small>log g de la estrella</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_slogg" class="form-control-custom" required value="0" placeholder="4.531" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Radio Estelar
+                                    <small>Tamaño en radios solares (R☉)</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_srad" class="form-control-custom" required value="0" placeholder="0.773" />
+                            </div>
+                        </div>
+
+                        <!-- Grupo 4: Coordenadas y Magnitud -->
+                        <div>
+                            <h3 class="section-title">📍 Coordenadas Celestes</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Ascensión Recta (RA)
+                                    <small>Coordenada celeste horizontal</small>
+                                </label>
+                                <input type="number" step="any" name="Ra" class="form-control-custom" required value="0" placeholder="296.54752" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Declinación (DEC)
+                                    <small>Coordenada celeste vertical</small>
+                                </label>
+                                <input type="number" step="any" name="Dec" class="form-control-custom" required value="0" placeholder="44.941629" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Magnitud Kepler
+                                    <small>Brillo aparente de la estrella</small>
+                                </label>
+                                <input type="number" step="any" name="Koi_kepmag" class="form-control-custom" required value="0" placeholder="13.395" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-predict">
+                        🚀 Ejecutar Predicción
+                    </button>
+                </form>
+
+                <!-- Resultados -->
+                @if (ViewData["PredictedLabel"] != null)
+                {
+                    <div class="result-card">
+                        <div class="prediction-badge">
+                            @ViewData["PredictedLabel"]
+                        </div>
+
+                        <h4 class="text-white mb-3">Probabilidades de Clasificación</h4>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between text-white mb-1">
+                                <span>Confirmado como Exoplaneta</span>
+                                <span>@ViewData["ConfirmedPercent"]</span>
+                            </div>
+                            <div class="probability-bar">
+                                <div class="probability-fill confirmed" style="width: @ViewData["ConfirmedPercent"]"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between text-white mb-1">
+                                <span>Falso Positivo</span>
+                                <span>@ViewData["FalsePositivePercent"]</span>
+                            </div>
+                            <div class="probability-bar">
+                                <div class="probability-fill false-positive" style="width: @ViewData["FalsePositivePercent"]"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="Koi_fpflag_co">Koi_fpflag_co</label>
-        <input type="number" step="any" name="Koi_fpflag_co" id="Koi_fpflag_co" class="form-control" required />
-    </div>
+<script>
+    // Crear estrellas animadas
+    document.addEventListener('DOMContentLoaded', function() {
+        const starsContainer = document.getElementById('stars');
+        const starCount = 100;
 
-    <div class="form-group">
-        <label for="Koi_fpflag_ec">Koi_fpflag_ec</label>
-        <input type="number" step="any" name="Koi_fpflag_ec" id="Koi_fpflag_ec" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_period">Koi_period</label>
-        <input type="number" step="any" name="Koi_period" id="Koi_period" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_impact">Koi_impact</label>
-        <input type="number" step="any" name="Koi_impact" id="Koi_impact" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_duration">Koi_duration</label>
-        <input type="number" step="any" name="Koi_duration" id="Koi_duration" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_depth">Koi_depth</label>
-        <input type="number" step="any" name="Koi_depth" id="Koi_depth" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_prad">Koi_prad</label>
-        <input type="number" step="any" name="Koi_prad" id="Koi_prad" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_teq">Koi_teq</label>
-        <input type="number" step="any" name="Koi_teq" id="Koi_teq" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_insol">Koi_insol</label>
-        <input type="number" step="any" name="Koi_insol" id="Koi_insol" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_model_snr">Koi_model_snr</label>
-        <input type="number" step="any" name="Koi_model_snr" id="Koi_model_snr" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_steff">Koi_steff</label>
-        <input type="number" step="any" name="Koi_steff" id="Koi_steff" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_slogg">Koi_slogg</label>
-        <input type="number" step="any" name="Koi_slogg" id="Koi_slogg" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_srad">Koi_srad</label>
-        <input type="number" step="any" name="Koi_srad" id="Koi_srad" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Ra">Ra</label>
-        <input type="number" step="any" name="Ra" id="Ra" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Dec">Dec</label>
-        <input type="number" step="any" name="Dec" id="Dec" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Koi_kepmag">Koi_kepmag</label>
-        <input type="number" step="any" name="Koi_kepmag" id="Koi_kepmag" class="form-control" required />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Predecir</button>
-
-</form>
-
-@if (ViewData["PredictedLabel"] != null)
-{
-    @* <div>
-        <h3>Resultado de la Predicción</h3>
-        <p>Predicción: @ViewData["PredictedLabel"]</p>
-    </div> *@
-    <div class="mt-4">
-        <h3>Resultado de la Predicción</h3>
-        <p><strong>Predicción:</strong> @ViewData["PredictedLabel"]</p>
-        <p><strong>CONFIRMED:</strong> @ViewData["ConfirmedPercent"]</p>
-        <p><strong>FALSE POSITIVE:</strong> @ViewData["FalsePositivePercent"]</p>
-    </div>
-}
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 2 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    });
+</script>

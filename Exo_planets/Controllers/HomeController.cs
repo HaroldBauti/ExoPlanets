@@ -18,7 +18,7 @@ namespace Exo_planets.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult ChatBot()
         {
             return View();
         }

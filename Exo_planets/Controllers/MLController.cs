@@ -59,7 +59,7 @@ namespace Exo_planets.Controllers
             return View("Index");
         }
 
-        public IActionResult Index()
+        public IActionResult Index()    
         {
             return View();
         }

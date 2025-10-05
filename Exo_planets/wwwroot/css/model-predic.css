@@ -1,0 +1,272 @@
+﻿body {
+}
+/* 🌌 Estilos para el Modelo de Predicción de Exoplanetas */
+:root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.8);
+    --text-light: #f8fafc;
+    --border-light: rgba(255, 255, 255, 0.2);
+    --glow-primary: rgba(99, 102, 241, 0.4);
+    --glow-success: rgba(16, 185, 129, 0.4);
+}
+
+.exoplanet-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3e 50%, #2d1b69 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+    .exoplanet-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.glass-card {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+    .form-grid::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .form-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    .form-grid::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 10px;
+    }
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.9rem;
+}
+
+    .form-label small {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+.form-control-custom {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 10px !important;
+    color: var(--text-light) !important;
+    padding: 0.75rem 1rem !important;
+    transition: all 0.3s ease !important;
+    width: 100%;
+}
+
+    .form-control-custom:focus {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: var(--primary-color) !important;
+        box-shadow: 0 0 0 3px var(--glow-primary) !important;
+        color: var(--text-light) !important;
+        outline: none;
+    }
+
+    .form-control-custom::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+.btn-predict {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--glow-primary);
+    width: 100%;
+    margin-top: 1rem;
+}
+
+    .btn-predict:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--glow-primary);
+        background: linear-gradient(135deg, var(--primary-dark), #4338ca);
+    }
+
+    .btn-predict:active {
+        transform: translateY(0);
+    }
+
+.result-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prediction-badge {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px var(--glow-success);
+}
+
+.probability-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 8px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+}
+
+.probability-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+    .probability-fill.confirmed {
+        background: linear-gradient(90deg, var(--success-color), #34d399);
+    }
+
+    .probability-fill.false-positive {
+        background: linear-gradient(90deg, var(--danger-color), #f87171);
+    }
+
+.probability-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.header-title {
+    color: var(--text-light);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ffffff, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-title {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .glass-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* Animaciones para inputs */
+.form-control-custom:hover {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Estados de validación */
+.form-control-custom:invalid {
+    border-color: var(--danger-color) !important;
+}
+
+.form-control-custom:valid {
+    border-color: rgba(16, 185, 129, 0.5) !important;
+}

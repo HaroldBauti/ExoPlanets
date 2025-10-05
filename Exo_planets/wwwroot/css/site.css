@@ -64,7 +64,23 @@ body {
   text-align: start;
 }
 
-footer {
-    color: #e0e0ff;
-    padding: 2rem 1rem;
+/* Hacer que el footer se quede abajo */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border-top: 3px solid #0d6efd !important;
 }

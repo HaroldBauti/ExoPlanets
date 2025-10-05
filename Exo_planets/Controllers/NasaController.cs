@@ -25,6 +25,7 @@ namespace Exo_planets.Controllers
             var rsp = new Response();
             try
             {
+                Console.WriteLine(_webHookUrl);
                 var query = new Query { message = message, id = id };
                 var json = JsonConvert.SerializeObject(query);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -46,13 +47,14 @@ namespace Exo_planets.Controllers
                 }
                 else
                 {
-                    rsp.url = responseContent.Split('\n')[0];
-                    rsp.yearDisc = responseContent.Split('\n')[1];
-                    rsp.met_desc = responseContent.Split('\n')[2];
-                    rsp.temp = responseContent.Split('\n')[3];
-                    rsp.ratio = responseContent.Split('\n')[4];
-                    rsp.name_exoplaneta = responseContent.Split('\n')[5];
+                    Console.WriteLine(responseContent.Split('\n')[5]);
                     rsp.Value = responseContent.Split('\n')[6];
+                    rsp.name_exoplaneta = responseContent.Split('\n')[5];
+                    rsp.url = responseContent.Split('\n')[4];
+                    rsp.yearDisc = responseContent.Split('\n')[0];
+                    rsp.met_desc = responseContent.Split('\n')[1];
+                    rsp.temp = responseContent.Split('\n')[2];
+                    rsp.ratio = responseContent.Split('\n')[3];
                 }
 
             }

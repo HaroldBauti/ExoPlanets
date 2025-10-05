@@ -48,9 +48,9 @@ namespace Exo_planets.Controllers
                 else
                 {
                     Console.WriteLine(responseContent.Split('\n')[5]);
-                    rsp.name_exoplaneta = responseContent.Split('\n')[4];
-                    rsp.Value = responseContent.Split('\n')[5];
-                    //rsp.url = responseContent.Split('\n')[0];
+                    rsp.Value = responseContent.Split('\n')[6];
+                    rsp.name_exoplaneta = responseContent.Split('\n')[5];
+                    rsp.url = responseContent.Split('\n')[4];
                     rsp.yearDisc = responseContent.Split('\n')[0];
                     rsp.met_desc = responseContent.Split('\n')[1];
                     rsp.temp = responseContent.Split('\n')[2];

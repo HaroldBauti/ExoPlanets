@@ -1,10 +1,11 @@
-﻿// speech.js - Chatbot de Exoplanetas Mejorado
+﻿// speech.js - Chatbot de Exoplanetas CORREGIDO
 class ExoplanetChatbot {
     constructor() {
         this.voices = [];
         this.selectedVoice = null;
         this.chatHistory = [];
         this.isSpeaking = false;
+        this.audioEnabled = true;
         this.init();
     }
 
@@ -12,19 +13,19 @@ class ExoplanetChatbot {
         this.loadVoices();
         this.loadChatHistory();
         this.setupEventListeners();
+        this.showWelcomeMessage();
     }
 
-    // Cargar voces disponibles
+    // Cargar voces disponibles - MANTENIDO IGUAL
     loadVoices() {
         this.voices = speechSynthesis.getVoices();
         console.log('Voces disponibles:', this.voices);
 
-        // Buscar voces en español
+        // Buscar Google español o cualquier voz en español
         const spanishVoices = this.voices.filter(voice =>
             voice.lang.includes('es') || voice.name.toLowerCase().includes('spanish')
         );
 
-        // Priorizar Google español, luego cualquier voz en español, luego la primera disponible
         this.selectedVoice = this.voices.find(voice => voice.name === "Google español") ||
             spanishVoices[0] ||
             this.voices[0];
@@ -38,7 +39,6 @@ class ExoplanetChatbot {
     setupEventListeners() {
         speechSynthesis.onvoiceschanged = () => this.loadVoices();
 
-        // Enter para enviar mensaje
         document.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -47,22 +47,18 @@ class ExoplanetChatbot {
         });
     }
 
-    // Guardar historial del chat
+    // Guardar y cargar historial - MANTENIDO
     saveChatHistory() {
         try {
             localStorage.setItem('exoplanet_chat_history', JSON.stringify(this.chatHistory));
         } catch (error) {
             console.warn('No se pudo guardar en localStorage:', error);
-            // Fallback a sessionStorage
-            sessionStorage.setItem('exoplanet_chat_history', JSON.stringify(this.chatHistory));
         }
     }
 
-    // Cargar historial del chat
     loadChatHistory() {
         try {
-            const saved = localStorage.getItem('exoplanet_chat_history') ||
-                sessionStorage.getItem('exoplanet_chat_history');
+            const saved = localStorage.getItem('exoplanet_chat_history');
             if (saved) {
                 this.chatHistory = JSON.parse(saved);
                 this.renderChatHistory();
@@ -73,49 +69,50 @@ class ExoplanetChatbot {
         }
     }
 
-    // Limpiar historial
     clearChatHistory() {
         this.chatHistory = [];
         this.saveChatHistory();
         this.renderChatHistory();
+        this.showWelcomeMessage();
     }
 
-    // Llamada al endpoint
+    // 🚨 CORRECCIÓN PRINCIPAL: Función fetch simplificada como en tu código original
     async fetchQueryResult(message, id = 1) {
         try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 seg timeout
+            console.log('Enviando consulta:', message);
 
             const response = await fetch(`/api/Nasa/Query?message=${encodeURIComponent(message)}&id=${id}`, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                signal: controller.signal
+                    'Content-Type': 'application/json'
+                }
             });
 
-            clearTimeout(timeoutId);
-
-            if (!response.ok) {
-                throw new Error(`Error HTTP: ${response.status}`);
+            // Verificar si la respuesta fue exitosa - IGUAL QUE TU CÓDIGO ORIGINAL
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Respuesta recibida:', data);
+                return data;  // Retornamos los datos obtenidos del servidor
+            } else {
+                throw new Error('Error en la respuesta del servidor');
             }
-
-            const data = await response.json();
-            return data;
-
         } catch (error) {
-            console.error('Error en fetchQueryResult:', error);
-
-            if (error.name === 'AbortError') {
-                throw new Error('La solicitud tardó demasiado tiempo. Intenta nuevamente.');
-            }
-
-            throw new Error('Error de conexión. Verifica tu conexión a internet.');
+            console.error('Error al llamar al endpoint:', error);
+            throw new Error('Hubo un error al obtener la respuesta del servidor.');
         }
     }
 
-    // Enviar mensaje
+    // 🚨 NUEVO: Función para verificar si una imagen existe
+    async checkImageExists(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    // 🚨 CORRECCIÓN: Enviar mensaje simplificado
     async sendMessage() {
         const userInput = document.getElementById('userText');
         const message = userInput.value.trim();
@@ -133,43 +130,47 @@ class ExoplanetChatbot {
         this.showTypingIndicator();
 
         try {
-            const result = await this.fetchQueryResult(message);
+            // 🚨 CORRECCIÓN: Llamada directa como en tu código original
+            const result = await this.fetchQueryResult(message, 1);
             this.hideTypingIndicator();
 
-            if (result && result.value) {
-                // Agregar respuesta del bot
-                this.addMessageToChat('bot', result.value);
+            // 🚨 CORRECCIÓN: Validación más flexible como en tu código original
+            if (result) {
+                console.log('Resultado procesado:', result);
 
-                // Actualizar datos del exoplaneta
-                this.updateExoplanetData(result);
+                // 🚨 MODIFICACIÓN: Agregar respuesta del bot con imagen si está disponible
+                this.addMessageToChat('bot', result.value, result.url);
 
                 // Reproducir audio si está habilitado
-                if (this.isAudioEnabled()) {
+                if (this.audioEnabled) {
                     this.speakText(result.value);
                 }
 
             } else {
-                throw new Error('Respuesta inválida del servidor');
+                throw new Error('No se recibió respuesta del servidor');
             }
 
         } catch (error) {
             this.hideTypingIndicator();
+            console.error('Error en sendMessage:', error);
             this.addMessageToChat('bot', `❌ ${error.message}`);
-            this.showNotification(error.message, 'error');
         }
 
         this.saveChatHistory();
     }
 
-    // Agregar mensaje al chat
-    addMessageToChat(sender, text) {
+    // 🚨 MODIFICACIÓN: Agregar mensaje al chat con soporte para imagen
+    addMessageToChat(sender, text, imageUrl = null) {
         const chatMessages = document.getElementById('chatMessages');
+        if (!chatMessages) return;
+
         const messageId = 'msg_' + Date.now();
 
         const message = {
             id: messageId,
             sender: sender,
             text: text,
+            imageUrl: imageUrl,
             timestamp: new Date().toISOString()
         };
 
@@ -185,51 +186,70 @@ class ExoplanetChatbot {
                     <div class="message-content">${this.escapeHtml(text)}</div>
                     <div class="message-time">${this.getFormattedTime()}</div>
                 </div>
-                <div class="message-avatar user-avatar">
-                    <i class="bi bi-person-fill"></i>
+               <div class="message-avatar bot-avatar">
+                    <img src="/img/user-atronauta.jpg" class="bot-avatar-img" alt="Bot Avatar" />
                 </div>
             `;
         } else {
+            // 🚨 MODIFICACIÓN: Agregar imagen si está disponible
+            let imageHtml = '';
+            if (imageUrl && imageUrl !== "N/A") {
+                imageHtml = `
+                    <div class="message-image-container">
+                        <img src="${imageUrl}" 
+                             alt="Imagen relacionada" 
+                             class="message-image"
+                             onload="this.classList.add('image-loaded')"
+                             onerror="chatbot.handleImageError(this)">                     
+                    </div>
+                `;
+            }
+
             messageDiv.innerHTML = `
                 <div class="message-avatar bot-avatar">
-                    <i class="bi bi-robot"></i>
+                    <img src="/img/logo-cahtbot.jpg" class="bot-avatar-img" alt="Bot Avatar" />
                 </div>
                 <div class="message-bubble bot-bubble">
                     <div class="message-content">${this.escapeHtml(text)}</div>
+                    ${imageHtml}
                     <div class="message-time">${this.getFormattedTime()}</div>
-                  
+                    <div class="message-actions">
+                        <button class="btn-action" onclick="chatbot.copyMessage('${messageId}')" title="Copiar">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <button class="btn-action" onclick="chatbot.speakText('${this.escapeHtml(text)}')" title="Leer en voz alta">
+                            <i class="bi bi-volume-up"></i>
+                        </button>
+                    </div>
                 </div>
             `;
         }
 
-
-        //<div class="message-actions">
-        //    <button class="btn-action" onclick="chatbot.copyMessage('${messageId}')" title="Copiar">
-        //        <i class="bi bi-copy"></i>
-        //    </button>
-        //    <button class="btn-action" onclick="chatbot.speakText('${this.escapeHtml(text)}')" title="Leer en voz alta">
-        //        <i class="bi bi-volume-up"></i>
-        //    </button>
-        //</div>
-
         chatMessages.appendChild(messageDiv);
         this.scrollToBottom();
 
-        // Animación de entrada
         setTimeout(() => {
             messageDiv.classList.add('message-visible');
         }, 10);
     }
 
+    // Mostrar mensaje de bienvenida
+    showWelcomeMessage() {
+        const welcomeMessage = "¡Hola! Soy tu asistente de exoplanetas. Puedes preguntarme sobre cualquier exoplaneta, sus características, métodos de descubrimiento y más. ¿En qué puedo ayudarte?";
+        this.addMessageToChat('bot', welcomeMessage);
+    }
+
     // Mostrar indicador de typing
     showTypingIndicator() {
         const chatMessages = document.getElementById('chatMessages');
+        if (!chatMessages) return;
+
         const typingDiv = document.createElement('div');
         typingDiv.id = 'typingIndicator';
         typingDiv.className = 'message bot-message typing-indicator';
         typingDiv.innerHTML = `
             <div class="message-avatar bot-avatar">
-                <i class="bi bi-robot"></i>
+                <img src="/img/logo-cahtbot.jpg" class="bot-avatar-img" alt="Bot Avatar" />
             </div>
             <div class="message-bubble bot-bubble">
                 <div class="typing-dots">
@@ -251,9 +271,23 @@ class ExoplanetChatbot {
         }
     }
 
-    // Renderizar historial del chat
+    // Dentro de la clase ExoplanetChatbot, agrega esta función:
+    handleImageError(imgElement) {
+        imgElement.style.display = 'none';
+        // Crear elemento de error si no existe
+        const errorElement = document.createElement('div');
+        errorElement.className = 'image-error';
+        errorElement.innerHTML = `
+       
+    `;
+        imgElement.parentNode.appendChild(errorElement);
+    }
+
+    // 🚨 MODIFICACIÓN: Renderizar historial del chat con soporte para imágenes
     renderChatHistory() {
         const chatMessages = document.getElementById('chatMessages');
+        if (!chatMessages) return;
+
         chatMessages.innerHTML = '';
 
         this.chatHistory.forEach(message => {
@@ -268,16 +302,31 @@ class ExoplanetChatbot {
                         <div class="message-time">${this.getFormattedTime(message.timestamp)}</div>
                     </div>
                     <div class="message-avatar user-avatar">
-                        <i class="bi bi-person-fill"></i>
+                       <img src="/img/user-atronauta.jpg" class="bot-avatar-img" alt="Bot Avatar" />
                     </div>
                 `;
             } else {
+                // 🚨 MODIFICACIÓN: Agregar imagen si está disponible en el historial
+                let imageHtml = '';
+                if (message.imageUrl) {
+                    imageHtml = `
+                        <div class="message-image-container">
+                            <img src="${message.imageUrl}" 
+                                 alt="Imagen relacionada" 
+                                 class="message-image"
+                                 onload="this.classList.add('image-loaded')"
+                                 onerror="chatbot.handleImageError(this)">     
+                        </div>
+                    `;
+                }
+
                 messageDiv.innerHTML = `
-                    <div class="message-avatar ">
-                        <img src="/img/logo-cahtbot.jpg" class="bot-avatar" />
+                    <div class="message-avatar bot-avatar">
+                        <img src="/img/logo-cahtbot.jpg" class="bot-avatar-img" alt="Bot Avatar" />
                     </div>
                     <div class="message-bubble bot-bubble">
                         <div class="message-content">${this.escapeHtml(message.text)}</div>
+                        ${imageHtml}
                         <div class="message-time">${this.getFormattedTime(message.timestamp)}</div>
                         <div class="message-actions">
                             <button class="btn-action" onclick="chatbot.copyMessage('${message.id}')" title="Copiar">
@@ -297,31 +346,10 @@ class ExoplanetChatbot {
         this.scrollToBottom();
     }
 
-    // Actualizar datos del exoplaneta
-    updateExoplanetData(data) {
-        const updateField = (elementId, value, suffix = '') => {
-            const element = document.getElementById(elementId);
-            if (element && value) {
-                element.textContent = value + suffix;
-                element.parentElement.style.display = 'block';
-            }
-        };
-
-        updateField('metodoDisplay', data.met_desc);
-        updateField('nombreDisplay', data.name_exoplaneta);
-        updateField('ratioDisplay', data.ratio);
-        updateField('temperaturaDisplay', data.temp, ' K');
-        updateField('añoDisplay', data.yearDisc);
-
-        // Mostrar panel si hay datos
-        const panel = document.getElementById('exoplanetDataPanel');
-        if (data.name_exoplaneta || data.met_desc) {
-            panel.style.display = 'block';
-        }
-    }
-
-    // Reproducir texto
+    // 🚨 CORRECCIÓN: Función speakText simplificada como en tu código original
     speakText(text) {
+        if (!this.audioEnabled) return;
+
         if (this.isSpeaking) {
             speechSynthesis.cancel();
         }
@@ -329,10 +357,11 @@ class ExoplanetChatbot {
         this.isSpeaking = true;
 
         const utterance = new SpeechSynthesisUtterance(text);
+
+        // Configuración IDÉNTICA a tu código original
         utterance.voice = this.selectedVoice;
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
-        utterance.volume = 0.8;
+        utterance.rate = 1; // Misma velocidad que tu código original
+        utterance.volume = 1;
 
         utterance.onend = () => {
             this.isSpeaking = false;
@@ -341,7 +370,6 @@ class ExoplanetChatbot {
         utterance.onerror = (error) => {
             console.error('Error en síntesis de voz:', error);
             this.isSpeaking = false;
-            this.showNotification('Error al reproducir audio', 'error');
         };
 
         speechSynthesis.speak(utterance);
@@ -360,9 +388,22 @@ class ExoplanetChatbot {
         }
     }
 
-    // Verificar si audio está habilitado
-    isAudioEnabled() {
-        return !document.getElementById('toggleAudio')?.classList.contains('disabled');
+    // Alternar audio
+    toggleAudio() {
+        this.audioEnabled = !this.audioEnabled;
+        const button = document.getElementById('toggleAudio');
+
+        if (button) {
+            if (this.audioEnabled) {
+                button.classList.remove('disabled');
+                button.innerHTML = '<i class="bi bi-volume-up"></i>';
+                this.showNotification('Audio activado', 'success');
+            } else {
+                button.classList.add('disabled');
+                button.innerHTML = '<i class="bi bi-volume-mute"></i>';
+                this.showNotification('Audio desactivado', 'info');
+            }
+        }
     }
 
     // Utilidades
@@ -382,38 +423,34 @@ class ExoplanetChatbot {
 
     scrollToBottom() {
         const chatContainer = document.getElementById('chatContainer');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
     }
 
     showNotification(message, type = 'info') {
-        // Implementar notificación toast si es necesario
+        // Notificación simple
         console.log(`[${type.toUpperCase()}] ${message}`);
     }
 }
 
 // Inicializar chatbot
-const chatbot = new ExoplanetChatbot();
+let chatbot;
 
-// Función global para limpiar chat (usada en el HTML)
+document.addEventListener('DOMContentLoaded', function () {
+    chatbot = new ExoplanetChatbot();
+});
+
+// Funciones globales
 function clearChat() {
     if (confirm('¿Estás seguro de que quieres limpiar todo el historial del chat?')) {
         chatbot.clearChatHistory();
-        chatbot.showNotification('Chat limpiado', 'success');
     }
 }
 
-// Función global para alternar audio
 function toggleAudio() {
-    const button = document.getElementById('toggleAudio');
-    const isEnabled = !button.classList.contains('disabled');
-
-    if (isEnabled) {
-        button.classList.add('disabled');
-        button.innerHTML = '<i class="bi bi-volume-mute"></i>';
-        chatbot.showNotification('Audio desactivado', 'info');
-    } else {
-        button.classList.remove('disabled');
-        button.innerHTML = '<i class="bi bi-volume-up"></i>';
-        chatbot.showNotification('Audio activado', 'success');
+    if (chatbot) {
+        chatbot.toggleAudio();
     }
 }
+

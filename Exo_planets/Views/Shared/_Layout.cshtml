@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Exo_planets</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     @* <link rel="stylesheet" href="~/css/styles-exoplanetas.css" asp-append-version="true" /> *@
 </head>
 <body>
@@ -16,9 +16,11 @@
         <nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm">
             <div class="container-fluid">
                 <!-- Logo -->
+                <img src="~/img/logo-cahtbot.jpg" alt="Chatbot Logo" style="height: 35px; width: auto; margin-right:30px ;margin-left: 10px;" />
                 <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
-                    Exo_planets
+                    EXOQUEST
                 </a>
+                <img src="~/img/NASA_logo.png" alt="NASA Logo" style="height: 35px; width: auto; margin-left: 10px;" />
 
                 <!-- Botón responsive -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -36,7 +38,7 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="ChatBot">Chatbot</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="ML" asp-action="Index">Model. Predic</a>
+                            <a class="nav-link" asp-area="" asp-controller="ML" asp-action="Index">ExoModel</a>
                         </li>
                     </ul>
 
@@ -55,9 +57,68 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-white">
+    <footer class="footer bg-dark text-white py-4" style="margin-top: auto;">
         <div class="container">
-            &copy; 2025 - LOS EXOFISGONES
+            <div class="row">
+                <!-- Información del equipo -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">LOS EXOFISGONES</h5>
+                    <p class="mb-2">Equipo de ingenieros de sistemas especializados</p>
+                    <p class="mb-1"><small>Harold, Antony, Juan, Gary</small></p>
+                    <p class=" mb-0 text-white"><small>&copy; 2025 - Todos los derechos reservados</small></p>
+                </div>
+
+                <!-- Enlaces importantes -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">ENLACES</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="https://www.nasa.gov/" target="_blank" class="text-white text-decoration-none">
+                                <i class="bi bi-globe me-2"></i>NASA Oficial
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://www.spaceappschallenge.org/2025/find-a-team/los-exofisgones/?tab=details"
+                               target="_blank" class="text-white text-decoration-none">
+                                <i class="bi bi-rocket-takeoff me-2"></i>Space Apps Challenge
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/HaroldBauti/ExoPlanets" target="_blank" class="text-white text-decoration-none">
+                                <i class="bi bi-github me-2"></i>GitHub del Proyecto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Información del proyecto -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">EXOQUEST</h6>
+                    <p class="small">Plataforma especializada en el estudio y descubrimiento de exoplanetas mediante inteligencia artificial y análisis de datos espaciales.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-primary">NASA</span>
+                        <span class="badge bg-success">Space Apps</span>
+                        <span class="badge bg-info">Exoplanetas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Línea separadora -->
+            <hr class="my-3">
+
+            <!-- Copyright y créditos -->
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 small text-white">
+                        Desarrollado para NASA Space Apps Challenge 2025
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 small text-white">
+                        Explorando el universo, un exoplaneta a la vez
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
